@@ -1,0 +1,99 @@
+<!doctypehtml>
+<html lang=en-us>
+
+  <head>
+    <meta charset=utf-8>
+    <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+    <title>Euler's Project Problem 1</title>
+    <style>
+      body {
+        font-family: arial;
+        width: 70%;
+        margin: 0 auto;
+        padding: none
+      }
+
+      .emscripten {
+        padding-right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: block
+      }
+
+      div.emscripten {
+        text-align: center
+      }
+
+      div.emscripten_border {
+        border: 1px solid #000
+      }
+
+      canvas.emscripten {
+        border: 0 none;
+        background-color: #000
+      }
+
+      div.header {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 30px;
+        margin-left: 20px;
+        font-weight: 700;
+        color: #787878
+      }
+
+      #controls {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 30px;
+        margin-right: 20px
+      }
+
+      textarea.output {
+        width: 100%;
+        margin: 10 auto;
+        height: 60px;
+        border-left: 0;
+        border-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        display: block;
+        background-color: #000;
+        color: greenyellow;
+        font-family: 'Lucida Console', Monaco, monospace;
+        outline: 0
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class=emscripten class=header>WebGL Canvas</div>
+    <div class=emscripten_border>
+      <canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
+    </div>
+    <div class=emscripten id=status class=header>Downloading...</div>
+    <div>
+      <span><label>Amount of times to repeat </label><input type="text" id='runCount' value="100000"/></span>
+      <span><input type="button" id='runWASM' value="Run Web Assembly Solution" onclick="timeWASM();"/></span>
+      <span><input type="button" id="runJS" value="Run JavaScript Solution" onclick="timeJS();"/></span>
+      <span><input type="button" id="runDELTA" value="Run Solutions Delta" onclick="diffTimes();"></span>
+    </div>
+
+    <label>Web Assembly (from c)</label>
+    <textarea id=wasmOutput class=output rows=8></textarea>
+
+    <label>Javascript</label>
+    <textarea id=jsOutput class=output rows=8></textarea>
+
+    <label>Delta</label>
+    <textarea id=deltaOutput class=output rows=8></textarea>
+
+    <label>Console Log Output</label>
+    <textarea id=output class=output rows=8>Web Assembly Console Output</textarea>
+
+    <script src=setup.js></script>
+    <script src=solution.js></script>
+    <script src=js_solution.js></script>
+    <script src=run_solution.js></script>
+  </body>
+</html>
